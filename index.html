@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OpenLumara — Your AI. Your life. Your terms.</title>
+<meta name="description" content="OpenLumara is a modular, token-efficient AI agent framework written from scratch in Python. Local-first, private, multi-channel, and built for your whole life.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%A8%3C/text%3E%3C/svg%3E">
+</head>
+<body>
+
+<!-- ambient background -->
+<div class="aurora" aria-hidden="true">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="blob blob-3"></div>
+</div>
+<div class="grid-overlay" aria-hidden="true"></div>
+<canvas id="particles" aria-hidden="true"></canvas>
+
+<!-- nav -->
+<nav id="nav">
+  <a class="logo" href="#top">
+    <svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg>
+    <span>OpenLumara</span>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="#features" class="nav-link">Features</a>
+    <a href="#architecture" class="nav-link">Architecture</a>
+    <a href="#compare" class="nav-link">Compare</a>
+    <a href="#life" class="nav-link">Life</a>
+    <a href="#extend" class="nav-link">Extend</a>
+    <a href="https://github.com/Rose22/openlumara" class="btn btn-small btn-primary nav-cta" target="_blank" rel="noopener">GitHub</a>
+  </div>
+  <button class="nav-burger" id="navBurger" aria-label="menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- hero -->
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div class="badge reveal"><span class="pulse-dot"></span>Local-first &middot; Modular &middot; Token-efficient</div>
+    <h1 class="reveal">Your AI. Your life.<br><span class="grad-text">Your terms.</span></h1>
+    <p class="hero-sub reveal">
+      OpenLumara is a modular, token-efficient AI agent framework written from scratch in Python.
+      It lives on <em>your</em> hardware, talks through any channel you like, and keeps its system
+      prompt around <strong>4,000 tokens</strong> — not 40,000.
+    </p>
+    <div class="hero-actions reveal">
+      <a href="#features" class="btn btn-primary">Explore the framework</a>
+      <a href="#compare" class="btn btn-ghost">Compare with Pi &amp; Hermes &darr;</a>
+    </div>
+
+    <div class="terminal reveal" id="heroTerminal">
+      <div class="terminal-bar">
+        <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+        <span class="terminal-title">openlumara — run.sh</span>
+      </div>
+      <div class="terminal-body" id="terminalBody"><span class="t-line" id="terminalText"></span><span class="t-cursor" id="tCursor"></span></div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true"><span class="mouse"></span></div>
+  </div>
+</header>
+
+<!-- stats -->
+<section class="stats" id="stats">
+  <div class="container stats-grid">
+    <div class="stat reveal">
+      <div class="stat-num"><span class="counter" data-count="4000" data-format="k">0</span></div>
+      <div class="stat-label">typical system prompt tokens</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><span class="counter" data-count="26">0</span><span class="stat-plus">+</span></div>
+      <div class="stat-label">toggleable modules</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><span class="counter" data-count="11">0</span></div>
+      <div class="stat-label">built-in channels</div>
+    </div>
+    <div class="stat reveal">
+      <div class="stat-num"><span class="counter" data-count="0">0</span></div>
+      <div class="stat-label">paywalls, credits, or clouds</div>
+    </div>
+  </div>
+</section>
+
+<!-- features -->
+<section class="section" id="features">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Features</div>
+      <h2>Everything is a module. <span class="grad-text">Even the shell.</span></h2>
+      <p class="sec-sub">Memory, the scheduler, time-awareness, the web, even your AI's personality — all of it can be switched off, until you're talking to the bare model. Or all on. You decide.</p>
+    </div>
+
+    <div class="feature-grid">
+      <div class="card feature reveal" data-tilt>
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+        <h3>Modular by design</h3>
+        <p>Every capability is a plain Python class. Toggle anything with <code>/module</code>, ask the AI to do it for you, or edit the config. Turn <em>everything</em> off — your system prompt can be empty.</p>
+      </div>
+      <div class="card feature reveal" data-tilt>
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z"/></svg></div>
+        <h3>Token efficiency, visible</h3>
+        <p>~4,000-token system prompts, offline token counting, binary-search context trimming, and live <code>/status</code> &amp; <code>/context</code> so you always see exactly what's being sent.</p>
+      </div>
+      <div class="card feature reveal" data-tilt>
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12l9-8 9 8"/><path d="M5 10v10h14V10"/><circle cx="12" cy="15" r="2"/></svg></div>
+        <h3>Local-first, private</h3>
+        <p>Made to pair with <code>llamacpp</code>, <code>koboldcpp</code>, and <code>ollama</code>. Any OpenAI-compatible API works. No cloud, no portal, no phone-home — your data never leaves your machine.</p>
+      </div>
+      <div class="card feature reveal" data-tilt>
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M9 11h6M9 14h4"/></svg></div>
+        <h3>Multi-channel, one brain</h3>
+        <p>WebUI, CLI, Telegram, Discord, Matrix (with encryption), ntfy, and an API bridge. One memory, one personality, every surface — switch channels on the fly, or run them all at once.</p>
+      </div>
+      <div class="card feature reveal" data-tilt>
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>Scheduler, from scratch</h3>
+        <p>Cron-style jobs with recurring schedules, three prompt strategies (from full context to instruction-only), and notifications to any channel. Morning routines, reminders, daily briefings — done.</p>
+      </div>
+      <div class="card feature reveal" data-tilt>
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-5 6 5 6"/><path d="M16 6l5 6-5 6"/><path d="M13 4l-2 16"/></svg></div>
+        <h3>Sandboxed coder</h3>
+        <p>File operations validated with tree-sitter <em>before</em> they touch disk — no shell required. Read-only mode, line limits, folder blacklists, and bundled templates so your AI can write its own modules.</p>
+      </div>
+      <div class="card feature reveal" data-tilt>
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 2 .8 3.4 2 4.5V17h8v-3.5c1.2-1.1 2-2.5 2-4.5a6 6 0 0 0-6-6z"/><path d="M9 20h6M10 22h4"/></svg></div>
+        <h3>Persistent memory</h3>
+        <p>Pinned memories live in the system prompt; everything else is searchable on demand. Stored as compact msgpack. A module — so if you want amnesia, just say so.</p>
+      </div>
+      <div class="card feature reveal" data-tilt>
+        <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <h3>Safe by default</h3>
+        <p>Shell access is a module that's <em>disabled</em> by default. When enabled, it runs in a Docker container with CPU, memory, and process limits — and an internet cutoff. HTTP &amp; web readers have domain allow/block lists.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- architecture -->
+<section class="section section-alt" id="architecture">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Architecture</div>
+      <h2>Small core. <span class="grad-text">Infinite shape.</span></h2>
+      <p class="sec-sub">A hand-written core of a few hundred ideas: a manager, a context builder, a chat store, tool-call plumbing. Around it, channels and modules plug in and out.</p>
+    </div>
+
+    <div class="arch-grid">
+      <div class="arch-col reveal">
+        <div class="arch-title">Channels</div>
+        <div class="arch-list">
+          <span class="chip">WebUI</span><span class="chip">CLI</span><span class="chip">Telegram</span>
+          <span class="chip">Discord</span><span class="chip">Matrix (E2E)</span><span class="chip">ntfy</span>
+          <span class="chip">API bridge</span><span class="chip">Logger</span><span class="chip">+ your own</span>
+        </div>
+      </div>
+      <div class="arch-flow" aria-hidden="true"><span class="flow-line"></span><span class="flow-label">in / out</span></div>
+      <div class="arch-core reveal">
+        <div class="arch-title core-title">Core</div>
+        <div class="core-box">
+          <div class="core-item">Manager</div>
+          <div class="core-item">Context <em>~4k tokens</em></div>
+          <div class="core-item">Chat store</div>
+          <div class="core-item">Tool calls</div>
+          <div class="core-item">Storage <em>msgpack</em></div>
+          <div class="core-item">Commands</div>
+        </div>
+      </div>
+      <div class="arch-flow" aria-hidden="true"><span class="flow-line"></span><span class="flow-label">tools / prompts</span></div>
+      <div class="arch-col reveal">
+        <div class="arch-title">Modules</div>
+        <div class="arch-list">
+          <span class="chip">memory</span><span class="chip">scheduler</span><span class="chip">coder</span>
+          <span class="chip">lists</span><span class="chip">notes</span><span class="chip">calendar</span>
+          <span class="chip">characters</span><span class="chip">models</span><span class="chip">identity</span>
+          <span class="chip">web_search</span><span class="chip">web_reader</span><span class="chip">sandboxed shell</span>
+          <span class="chip">writing_style</span><span class="chip">auto_backup</span><span class="chip">+ 10 more</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="arch-banner reveal">
+      <p>Every module contributes tools <em>and</em> prompt fragments — top, middle, or end of context.
+      Frequently-changing data (like the time) goes at the <strong>end prompt</strong>, so history never gets reprocessed.
+      Turn order is enforced, multimodal payloads are stripped from old messages, and broken modules are quarantined so they can't break your whole agent.</p>
+    </div>
+  </div>
+</section>
+
+<!-- compare -->
+<section class="section" id="compare">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Comparison</div>
+      <h2>OpenLumara vs <span class="grad-text">Pi</span> vs <span class="grad-text">Hermes</span></h2>
+      <p class="sec-sub">Pi is a brilliant minimal terminal harness. Hermes is a capable generalist with a cloud growth path. OpenLumara is a local-first agent for your <em>whole life</em>. Here's the honest table.</p>
+    </div>
+
+    <div class="table-wrap reveal">
+      <table class="cmp-table">
+        <thead>
+          <tr>
+            <th class="cmp-th-label"></th>
+            <th class="cmp-th cmp-ol">OpenLumara</th>
+            <th class="cmp-th">Pi</th>
+            <th class="cmp-th">Hermes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td class="row-label">Core focus</td><td class="cell-ol">Life management + coding</td><td>Terminal coding</td><td>General automation</td></tr>
+          <tr><td class="row-label">License</td><td class="cell-ol">GPLv3</td><td>MIT</td><td>MIT</td></tr>
+          <tr><td class="row-label">Language</td><td class="cell-ol">Python (hand-written core)</td><td>TypeScript / Bun</td><td>&mdash;</td></tr>
+          <tr><td class="row-label">Interfaces</td><td class="cell-ol">WebUI &middot; CLI &middot; Telegram &middot; Discord &middot; Matrix &middot; ntfy</td><td>Terminal TUI only</td><td>CLI &middot; desktop app &middot; dashboard &middot; 20+ chat</td></tr>
+          <tr><td class="row-label">Persistent memory</td><td class="cell-ol"><span class="yes">&#10003;</span> module, opt-in</td><td><span class="no">&#10007;</span> build it yourself</td><td><span class="yes">&#10003;</span></td></tr>
+          <tr><td class="row-label">Scheduler / cron</td><td class="cell-ol"><span class="yes">&#10003;</span> 3 prompt strategies</td><td><span class="no">&#10007;</span></td><td><span class="yes">&#10003;</span></td></tr>
+          <tr><td class="row-label">Web UI</td><td class="cell-ol"><span class="yes">&#10003;</span> built-in, lightweight</td><td><span class="no">&#10007;</span></td><td>dashboard + desktop app</td></tr>
+          <tr><td class="row-label">Local models</td><td class="cell-ol"><span class="yes">&#10003;</span> first-class (llamacpp, koboldcpp, ollama)</td><td><span class="yes">&#10003;</span></td><td><span class="yes">&#10003;</span> 5 backends</td></tr>
+          <tr><td class="row-label">Cloud dependency</td><td class="cell-ol"><span class="yes">&#10003;</span> none, ever</td><td><span class="yes">&#10003;</span> none</td><td>optional paid cloud</td></tr>
+          <tr><td class="row-label">Coding tools</td><td class="cell-ol">sandboxed coder + optional shell</td><td>4 tools incl. raw bash</td><td>code execution sandboxes</td></tr>
+          <tr><td class="row-label">Permission model</td><td class="cell-ol">modules off by default, sandboxed shell</td><td><span class="no">&#10007;</span> none built-in (runs as you)</td><td>sandboxed backends</td></tr>
+          <tr><td class="row-label">Token control</td><td class="cell-ol"><span class="yes">&#10003;</span> /status, /context, ~4k prompt</td><td>minimal prompt</td><td>&mdash;</td></tr>
+          <tr><td class="row-label">Character system</td><td class="cell-ol"><span class="yes">&#10003;</span> built-in</td><td><span class="no">&#10007;</span></td><td><span class="no">&#10007;</span></td></tr>
+          <tr><td class="row-label">Extensibility</td><td class="cell-ol">Python classes + auto-installer</td><td>TypeScript extensions + npm</td><td>self-created skills</td></tr>
+          <tr><td class="row-label">Paywall</td><td class="cell-ol"><span class="yes">&#10003;</span> none</td><td><span class="yes">&#10003;</span> none</td><td>optional paid tiers</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-head"><span class="why-logo pi-logo">Pi</span><h3>Why not Pi?</h3></div>
+        <ul class="why-list">
+          <li><span class="why-ico">&rarr;</span><p><strong>It's a terminal.</strong> Pi is a superb minimal harness — but it's a coding agent for your terminal. No web UI, no chat channels (chat lives in a separate repo), no phone notifications.</p></li>
+          <li><span class="why-ico">&rarr;</span><p><strong>Features are your job.</strong> Its philosophy is "primitives, not features": no MCP, no sub-agents, no plan mode, no to-dos. Memory, scheduling, and workflows are extensions you write yourself — in TypeScript.</p></li>
+          <li><span class="why-ico">&rarr;</span><p><strong>No permission system.</strong> Pi runs with the privileges of whoever launched it. Containerize it yourself.</p></li>
+          <li><span class="why-ico">&rarr;</span><p><strong>OpenLumara ships those modules.</strong> Memory, scheduler, coder, lists, characters — all in plain Python, all off by default, all toggleable with one command.</p></li>
+        </ul>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-head"><span class="why-logo hermes-logo">Hermes</span><h3>Why not Hermes?</h3></div>
+        <p class="why-fair">To be fair: Hermes is a great agent, and its cloud is fully optional. But for local-first life use, here's where OpenLumara wins:</p>
+        <ul class="why-list">
+          <li><span class="why-ico">&rarr;</span><p><strong>Local works — but slowly.</strong> Hermes fully supports local models, but context compaction and consecutive requests can make local runs slow. OpenLumara is laser-focused on token efficiency — a ~4,000-token system prompt and instruction-only scheduling keep local models fast.</p></li>
+          <li><span class="why-ico">&rarr;</span><p><strong>Self-hosting is "work."</strong> By their own words: a VPS, API keys, model routing, security, and upkeep. OpenLumara: clone, run, done — on a laptop, a VPS, or a GPU box.</p></li>
+          <li><span class="why-ico">&rarr;</span><p><strong>Coding isn't its core.</strong> Hermes points you to Cursor for deep coding sessions. OpenLumara ships a sandboxed, tree-sitter-validated coder — no shell required.</p></li>
+          <li><span class="why-ico">&rarr;</span><p><strong>It's built for businesses.</strong> Founders, agencies, support desks. OpenLumara is built for your <em>life</em>: routines, habits, memory, reminders — even for executive dysfunction.</p></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="reasons reveal">
+      <div class="reasons-head"><h3>Eight reasons to choose OpenLumara</h3></div>
+      <ol class="reasons-list">
+        <li><div class="reason"><span class="reason-num">01</span><div><h4>One brain for your whole life</h4><p>Not just code, not just business ops. To-dos, notes, memory, calendar, scheduler — built in, all optional.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">02</span><div><h4>Everything is a module</h4><p>Turn off any component — even the shell, even time, even your AI's personality. Pi makes you build; Hermes ships a fixed stack.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">03</span><div><h4>Local-first, private by default</h4><p>Paired with llamacpp, koboldcpp, and ollama. No cloud, no portal, no credits, no phone-home.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">04</span><div><h4>Token efficiency you can see</h4><p>~4,000-token system prompt, offline token counting, binary-search trimming, and live <code>/status</code> &amp; <code>/context</code>.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">05</span><div><h4>Multi-channel from day one</h4><p>WebUI, CLI, Telegram, Discord, Matrix (encrypted), ntfy, API bridge — one memory, many faces.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">06</span><div><h4>Safe by default</h4><p>Sandboxed Docker shell with resource limits and internet cutoff, tree-sitter-validated coding, domain allow/block lists.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">07</span><div><h4>Extend in ten lines of Python</h4><p>A module is a class with a few methods. The auto-installer handles dependencies. No TypeScript, no monolith.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">08</span><div><h4>Free, forever</h4><p>GPLv3. No tiers, no credits, no cloud required. And the lobster stays away.</p></div></div></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- life -->
+<section class="section section-alt" id="life">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Life management</div>
+      <h2>An external <span class="grad-text">prefrontal cortex</span></h2>
+      <p class="sec-sub">OpenLumara is especially well-suited to life management — and it's what its creator uses it for the most. If you deal with ADHD, autism, or any form of executive dysfunction, this is your gentle, persistent, always-on assistant.</p>
+    </div>
+    <div class="life-grid">
+      <div class="life-card reveal"><span class="life-ico">&#9745;</span><h4>Lists &amp; to-dos</h4><p>Pinned lists in the prompt, prioritized with your AI, completed item by item.</p></div>
+      <div class="life-card reveal"><span class="life-ico">&#9998;</span><h4>Notes</h4><p>Searchable, categorized, editable — ask it to remember, and it does.</p></div>
+      <div class="life-card reveal"><span class="life-ico">&#10022;</span><h4>Memory</h4><p>Pinned memories always in context; the rest searchable on demand. It remembers you.</p></div>
+      <div class="life-card reveal"><span class="life-ico">&#128197;</span><h4>Calendar</h4><p>Upcoming events injected into the prompt, with notifications to any channel.</p></div>
+      <div class="life-card reveal"><span class="life-ico">&#9201;</span><h4>Scheduler</h4><p>Morning routines, medication reminders, grocery runs — recurring or one-off, at your pace.</p></div>
+      <div class="life-card reveal"><span class="life-ico">&#128260;</span><h4>Model switching</h4><p>Switch models on the fly — big model for hard tasks, small one for quick nudges. The AI can do it too.</p></div>
+    </div>
+    <div class="life-note reveal">
+      <p>Guided spontaneity: relaxed, but always with a hand to hold. When you're overstimulated, it gets gentle. When you're well, it's authoritative. That's the whole design.</p>
+    </div>
+  </div>
+</section>
+
+<!-- extend -->
+<section class="section" id="extend">
+  <div class="container">
+    <div class="sec-head reveal">
+      <div class="sec-kicker">Extensibility</div>
+      <h2>A module is <span class="grad-text">a class with a few methods</span></h2>
+      <p class="sec-sub">No build step, no manifest, no TypeScript. If you can write Python, you can extend OpenLumara. The auto-installer even handles your module's dependencies.</p>
+    </div>
+    <div class="extend-grid">
+      <div class="code-card reveal">
+        <div class="terminal-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="terminal-title">user_channels/notify.py</span>
+          <button class="copy-btn" id="copyBtn" data-code="import core&#10;&#10;class Notify(core.channel.Channel):&#10;    async def run(self):&#10;        while True:&#10;            text = input('notify&gt; ')&#10;            await self.on_push({'role': 'assistant', 'content': text})&#10;&#10;    async def on_push(self, message: dict):&#10;        print(message['content'])  # your notification!&#10;">copy</button>
+        </div>
+        <pre class="code-body"><code><span class="c-com">import core</span>
+
+<span class="c-key">class</span> <span class="c-cls">Notify</span>(core.channel.Channel):
+    <span class="c-key">async def</span> <span class="c-fn">run</span>(self):
+        <span class="c-key">while</span> <span class="c-key">True</span>:
+            text = <span class="c-fn">input</span>(<span class="c-str">'notify&gt; '</span>)
+            <span class="c-key">await</span> self.<span class="c-fn">on_push</span>({<span class="c-str">'role'</span>: <span class="c-str">'assistant'</span>, <span class="c-str">'content'</span>: text})
+
+    <span class="c-key">async def</span> <span class="c-fn">on_push</span>(self, message: dict):
+        <span class="c-fn">print</span>(message[<span class="c-str">'content'</span>])  <span class="c-com"># your notification!</span></code></pre>
+      </div>
+      <div class="extend-points">
+        <div class="ext-point reveal"><span class="ext-num">1</span><p><strong>Drop a file in <code>user_modules/</code></strong> or <code>user_channels/</code> and enable it in the config. CamelCase class name becomes the module name, automatically.</p></div>
+        <div class="ext-point reveal"><span class="ext-num">2</span><p><strong>Override the hooks you need:</strong> <code>on_system_prompt()</code>, <code>on_end_prompt()</code>, <code>on_background()</code>, <code>on_user_message()</code> — or none. Plain methods become tools, docstrings become tool descriptions.</p></div>
+        <div class="ext-point reveal"><span class="ext-num">3</span><p><strong>Declare dependencies</strong> in a <code>dependencies</code> list and the auto-installer installs (and uninstalls) them for you.</p></div>
+        <div class="ext-point reveal"><span class="ext-num">4</span><p><strong>Vibecode it:</strong> OpenLumara ships hand-written templates for channels and modules. Tell your AI to read one, and it can build you a new module — then audit it yourself.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section" id="get">
+  <div class="container">
+    <div class="cta-card reveal">
+      <div class="cta-glow" aria-hidden="true"></div>
+      <h2>Start in <span class="grad-text">two commands</span></h2>
+      <p>Clone it, run it, open your browser, set up your API, and enjoy. Then ask your new AI anything — it knows how to use itself.</p>
+      <div class="terminal cta-terminal">
+        <div class="terminal-bar">
+          <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
+          <span class="terminal-title">setup</span>
+        </div>
+        <div class="terminal-body static">
+<span class="t-line t-cmd">$ git clone https://github.com/Rose22/openlumara</span>
+<span class="t-line t-cmd">$ cd openlumara</span>
+<span class="t-line t-cmd">$ ./run.sh</span>
+<span class="t-line t-out">[core] Starting OpenLumara</span>
+<span class="t-line t-out">[core] loaded channel : webui</span>
+<span class="t-line t-out">[core] loaded module : memory</span>
+<span class="t-line t-ok">&#10142; Open your browser. Say hi. &#10142;</span>
+        </div>
+      </div>
+      <div class="cta-actions">
+        <a class="btn btn-primary" href="https://github.com/Rose22/openlumara" target="_blank" rel="noopener">Get OpenLumara on GitHub</a>
+        <a class="btn btn-ghost" href="https://github.com/Rose22/openlumara/blob/main/README.md" target="_blank" rel="noopener">Read the README</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer class="footer">
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <div class="logo"><svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg><span>OpenLumara</span></div>
+      <p>A modular, token-efficient AI agent framework. Local-first, private, and built for your whole life.</p>
+      <p class="lobster">&#129822; lobster-free zone — cats have claws too.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Project</h4>
+      <a href="https://github.com/Rose22/openlumara" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/Rose22/openlumara/blob/main/README.md" target="_blank" rel="noopener">README</a>
+      <a href="https://github.com/Rose22/openlumara/blob/main/CONTRIBUTING.md" target="_blank" rel="noopener">Contributing</a>
+    </div>
+    <div class="footer-col">
+      <h4>Compare</h4>
+      <a href="#compare">vs Pi</a>
+      <a href="#compare">vs Hermes</a>
+      <a href="#features">Features</a>
+    </div>
+    <div class="footer-col">
+      <h4>License</h4>
+      <p>GPL v3 — free forever, no tiers, no credits, no cloud required.</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>Made by <a href="https://github.com/Rose22" target="_blank" rel="noopener">Rose22</a> &middot; hand-written core, AI-assisted improvements, zero vibeslop.</p>
+    <p class="gen-credit">This site was generated by <span class="gen-model">Qwen3.8-27B</span> &mdash; running on <span class="gen-ol">OpenLumara</span>, naturally. &#10024;</p>
+  </div>
+</footer>
+
+<script src="main.js"></script>
+</body>
+</html>
