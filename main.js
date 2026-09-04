@@ -182,6 +182,24 @@
     setTimeout(typeLine, 700);
   }
 
+  /* ---------- context bar ---------- */
+
+  function initCtxBar() {
+    var bar = document.getElementById("ctxBar");
+    if (!bar) return;
+    var segs = bar.querySelectorAll(".ctx-seg");
+    function fill() {
+      segs.forEach(function (s) { s.style.width = s.getAttribute("data-w") + "%"; });
+    }
+    if (reduceMotion || !("IntersectionObserver" in window)) { fill(); return; }
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { fill(); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.4 });
+    io.observe(bar);
+  }
+
   /* ---------- nav ---------- */
 
   function initNav() {
@@ -278,6 +296,7 @@
     initReveals();
     initCounters();
     initTerminal();
+    initCtxBar();
     initNav();
     initTilt();
     initCopy();
