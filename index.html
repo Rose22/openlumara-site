@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>OpenLumara — Your AI. Your life. Your terms.</title>
-<meta name="description" content="OpenLumara is a free, private AI assistant that runs on your computer. It remembers your life, sets reminders, helps you code, and works wherever you are. Built for everyone — everyday users, power users, and developers.">
+<title>OpenLumara - Your AI. Your life. Your terms.</title>
+<meta name="description" content="OpenLumara is a free, private AI assistant that runs on your computer. It remembers your life, sets reminders, helps you code, and works wherever you are. Built for everyone - everyday users, power users, and developers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -46,35 +46,77 @@
   <div class="hero-inner">
     <div class="badge reveal"><span class="pulse-dot"></span>Free &middot; Private &middot; Runs on your computer</div>
     <h1 class="reveal">Your AI. Your life.<br><span class="grad-text">Your terms.</span></h1>
+
+    <!--
+      Hero slideshow.
+      To add a new image: drop it in /img, then copy one of the
+      <div class="slide"> blocks below and point the img src at it.
+      The data-title attribute on the img sets the title shown in the bar.
+      Buttons, dots and the counter update automatically.
+    -->
+    <div class="hero-slideshow reveal" id="heroSlideshow" aria-roledescription="carousel" aria-label="OpenLumara screenshots">
+      <div class="slideshow-bar">
+        <span class="dot dot-r"></span><span class="dot-y"></span><span class="dot dot-g"></span>
+        <span class="slideshow-title" id="slideTitle">openlumara &mdash; webui</span>
+        <span class="slideshow-count" id="slideCount">1 / 1</span>
+      </div>
+      <div class="slideshow-viewport">
+        <div class="slideshow-track" id="slideTrack">
+          <div class="slide" role="group" aria-roledescription="slide">
+            <img src="img/openlumara-main.png" alt="OpenLumara web interface" data-title="openlumara &mdash; webui">
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide">
+            <img src="img/openlumara-main-2.png" alt="OpenLumara web interface" data-title="openlumara &mdash; webui">
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide">
+            <img src="img/openlumara-webui-phone.png" alt="OpenLumara web interface on a phone" data-title="openlumara &mdash; webui (mobile)">
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide">
+            <img src="img/openlumara-telegram.png" alt="OpenLumara in Telegram" data-title="openlumara &mdash; telegram">
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide">
+            <img src="img/openlumara-terminal.png" alt="OpenLumara in the terminal" data-title="openlumara &mdash; terminal">
+          </div>
+          <div class="slide" role="group" aria-roledescription="slide">
+            <img src="img/openlumara-terminal-2.png" alt="OpenLumara in the terminal" data-title="openlumara &mdash; terminal">
+          </div>
+          <!-- add more slides here: <div class="slide"><img src="img/your-image.png" alt="description" data-title="openlumara - whatever"></div> -->
+        </div>
+        <button class="slideshow-btn prev" id="slidePrev" type="button" aria-label="Previous image">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="slideshow-btn next" id="slideNext" type="button" aria-label="Next image">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+        </button>
+      </div>
+      <div class="slideshow-dots" id="slideDots" aria-label="Choose image"></div>
+    </div>
+
     <p class="hero-sub reveal">
         OpenLumara is a <em>manually written</em> (not vibecoded) personal AI assistant that lives on <em>your</em> computer.
-      Made for everyday people — people who use AI to ask questions, get help with life, summarize articles, and so on.
+      Made for everyday people - people who use AI to ask questions, get help with life, summarize articles, and so on.
       It can code too, but that's optional and not its main purpose.
     </p>
     
     <p class="hero-sub reveal">
         <em>This is a harness for everyone</em>: everyday users, power users, and developers alike.
-      It remembers your life, sets your reminders, and talks to you wherever you are — with nothing leaving your machine.
+      It remembers your life, sets your reminders, and talks to you wherever you are - with nothing leaving your machine.
       Built to help you switch off expensive cloud AI services like ChatGPT and Gemini,
       by making local models perform better and enhancing them with features like web search.
     </p>
-
-    <p class="hero-sub reveal">
-        Think of it like a more advanced, fully private, local version of <em>Google Assistant</em>, <em>Siri</em>, <em>Amazon Alexa</em>, and so on. Supercharged by modern AI - but fulfilling many of the same needs. You can dump your entire life into it with confidence - because your data never leaves your device. Prompt injection attacks can't get your data because of the secure way it is all designed - scroll down to learn more.
-    </p>
-
-    <p class="hero-sub reveal">P.S. This website was generated using OpenLumara, running on Qwen3.8 27b and Qwen3.6 35b - fully locally, no cloud AI involved.</p>
 
     <div class="hero-actions reveal">
       <a href="#features" class="btn btn-primary">See what it can do</a>
       <a href="#compare" class="btn btn-ghost">Compare with Pi &amp; Hermes &darr;</a>
     </div>
 
+    <p class="gen-credit">This site was generated by <span class="gen-model">Qwen3.8-27B</span>, then further refined and edited with <span class="gen-model">Qwen3.6-35B</span> &mdash; running on <span class="gen-ol">OpenLumara</span>, naturally. &#10024;</p>
+
     <!--
     <div class="terminal reveal" id="heroTerminal">
       <div class="terminal-bar">
         <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
-        <span class="terminal-title">openlumara — run.sh</span>
+        <span class="terminal-title">openlumara - run.sh</span>
       </div>
       <div class="terminal-body" id="terminalBody"><span class="t-line" id="terminalText"></span><span class="t-cursor" id="tCursor"></span></div>
     </div>
@@ -90,14 +132,14 @@
     <div class="sec-head reveal">
       <div class="sec-kicker">Security</div>
       <h2>You're in control. <span class="grad-text">Always.</span></h2>
-      <p class="sec-sub">OpenLumara doesn't trust the AI to police itself. It doesn't rely on "please don't do bad things" — instead, the framework physically blocks anything you haven't allowed. You decide what your AI can see and do, and you can change your mind anytime.</p>
+      <p class="sec-sub">OpenLumara doesn't trust the AI to police itself. It doesn't rely on "please don't do bad things" - instead, the framework physically blocks anything you haven't allowed. You decide what your AI can see and do, and you can change your mind anytime.</p>
     </div>
 
     <div class="feature-grid sec-grid">
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>The AI can't decide its own rules</h3>
-        <p>No prompts asking the AI to "behave nicely." The framework sets hard limits, so the AI simply can't do things you haven't allowed — no exceptions.</p>
+        <p>No prompts asking the AI to "behave nicely." The framework sets hard limits, so the AI simply can't do things you haven't allowed - no exceptions.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
@@ -107,12 +149,12 @@
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h10M7 13h6"/></svg></div>
         <h3>Command line, locked away</h3>
-        <p>The command line is off by default. When you turn it on, it runs inside a restricted container with limits on CPU, memory, and processes — and you can cut its internet access too.</p>
+        <p>The command line is off by default. When you turn it on, it runs inside a restricted container with limits on CPU, memory, and processes - and you can cut its internet access too.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6l-5 6 5 6"/><path d="M16 6l5 6-5 6"/><path d="M13 4l-2 16"/></svg></div>
         <h3>Code help, without risks</h3>
-        <p>Your AI checks its own code before saving anything. It has read-only mode, line limits, and blocked folders. It can write code — but it can't damage your system.</p>
+        <p>Your AI checks its own code before saving anything. It has read-only mode, line limits, and blocked folders. It can write code - but it can't damage your system.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c3 3.5 3 14.5 0 18-3-3.5-3-14.5 0-18z"/></svg></div>
@@ -122,7 +164,7 @@
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l10 18H2z"/><path d="M12 10v5"/><circle cx="12" cy="18" r="0.6" fill="currentColor"/></svg></div>
         <h3>Risky features are clearly labeled</h3>
-        <p>Dangerous modules are marked "unsafe" in the settings, so you always know what you're enabling. And system commands like restarting work even if the AI is stuck — they bypass the AI entirely.</p>
+        <p>Dangerous modules are marked "unsafe" in the settings, so you always know what you're enabling. And system commands like restarting work even if the AI is stuck - they bypass the AI entirely.</p>
       </div>
     </div>
 
@@ -135,7 +177,7 @@
     <div class="sec-head reveal">
       <div class="sec-kicker">Features</div>
       <h2>Your AI, <span class="grad-text">the way you want it.</span></h2>
-      <p class="sec-sub">OpenLumara is built for your whole life — your memories, your schedule, your daily routines, your coding projects. Every feature is optional, and every feature is under your control. Turn things on when you need them, off when you don't.</p>
+      <p class="sec-sub">OpenLumara is built for your whole life - your memories, your schedule, your daily routines, your coding projects. Every feature is optional, and every feature is under your control. Turn things on when you need them, off when you don't.</p>
     </div>
 
     <div class="feature-grid">
@@ -147,7 +189,7 @@
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
         <h3>Fast, even with local AI</h3>
-        <p>Your AI only needs to process about 4,000 tokens of setup — that's like two pages of text. The rest of the conversation stays tiny too. You can see exactly how much your AI is processing at any time.</p>
+        <p>Your AI only needs to process about 4,000 tokens of setup - that's like two pages of text. The rest of the conversation stays tiny too. You can see exactly how much your AI is processing at any time.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
@@ -157,27 +199,27 @@
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
         <h3>Works wherever you are</h3>
-        <p>Chat with your AI in your browser, on Telegram, Discord, or right from your terminal. It remembers everything across all of them — one AI, everywhere you are.</p>
+        <p>Chat with your AI in your browser, on Telegram, Discord, or right from your terminal. It remembers everything across all of them - one AI, everywhere you are.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M3 10h18"/></svg></div>
         <h3>Reminders and routines</h3>
-        <p>Set up morning routines, medication reminders, grocery check-ins — recurring or one-time. Your AI wakes up and does its tasks automatically, even when you're not talking to it.</p>
+        <p>Set up morning routines, medication reminders, grocery check-ins - recurring or one-time. Your AI wakes up and does its tasks automatically, even when you're not talking to it.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 18l6-6-6-6"/><path d="M8 6l-6 6 6 6"/></svg></div>
         <h3>Helps you write code</h3>
-        <p>Your AI can write, edit, and fix code for you — safely. It checks its work before saving anything, and you control exactly what files it can touch. No shell access unless you want it.</p>
+        <p>Your AI can write, edit, and fix code for you - safely. It checks its work before saving anything, and you control exactly what files it can touch. No shell access unless you want it.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></div>
         <h3>Remembers everything</h3>
-        <p>It remembers your preferences, your habits, your past conversations — and it brings the most important things to mind automatically. The rest is searchable when you need it.</p>
+        <p>It remembers your preferences, your habits, your past conversations - and it brings the most important things to mind automatically. The rest is searchable when you need it.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>Safety built in</h3>
-        <p>By default, your AI can't access your computer's command line, browse the web freely, or do anything risky. You decide what it's allowed to do — and you can change your mind anytime.</p>
+        <p>By default, your AI can't access your computer's command line, browse the web freely, or do anything risky. You decide what it's allowed to do - and you can change your mind anytime.</p>
       </div>
     </div>
   </div>
@@ -188,7 +230,7 @@
   <div class="container stats-grid">
     <div class="stat reveal">
       <div class="stat-num"><span class="counter" data-count="4000" data-format="k">0</span></div>
-      <div class="stat-label">tokens to set up your AI — about two pages of text</div>
+      <div class="stat-label">tokens to set up your AI - about two pages of text</div>
     </div>
     <div class="stat reveal">
       <div class="stat-num"><span class="counter" data-count="26">0</span><span class="stat-plus">+</span></div>
@@ -200,7 +242,7 @@
     </div>
     <div class="stat reveal">
       <div class="stat-num"><span class="counter" data-count="0">0</span></div>
-      <div class="stat-label">paywalls, credits, or clouds — zero</div>
+      <div class="stat-label">paywalls, credits, or clouds - zero</div>
     </div>
   </div>
 </section>
@@ -211,7 +253,7 @@
     <div class="sec-head reveal">
       <div class="sec-kicker">Transparency</div>
       <h2>See exactly what <span class="grad-text">your AI is processing.</span></h2>
-      <p class="sec-sub">Here's exactly what your AI processes. This example data is taken from Rose22's personal instance — the one that generated this website — with more than half a year of memories and 74 tools active. Notice how small most things are.</p>
+      <p class="sec-sub">Here's exactly what your AI processes on a default installation - no custom modules, just the essentials. Notice how small most things are. <em>(Rose22's fully-loaded instance, which generated this site, uses about 12.5k tokens with 74 tools and half a year of memories.)</em></p>
     </div>
 
     <div class="terminal reveal ctx-terminal" >
@@ -221,54 +263,54 @@
       </div>
       <div class="terminal-body static">
 <span class="t-line t-cmd">== What your AI is processing ==</span>
-<span class="t-line t-out">System prompt: 4,256 tokens · 1,940 words</span>
-<span class="t-line t-out">Active tools: 7,768 tokens · 3,250 words</span>
-<span class="t-line t-out">Recent conversation: 419 tokens · 176 words</span>
-<span class="t-line t-out">End prompt: 22 tokens · 10 words</span>
-<span class="t-line t-ok">Total: 12,466 tokens · 5,376 words</span>
+<span class="t-line t-out">System prompt: 1,371 tokens · 807 words</span>
+<span class="t-line t-out">Active tools: 2,487 tokens · 1,082 words</span>
+<span class="t-line t-out">Recent conversation: 142 tokens · 88 words</span>
+<span class="t-line t-out">End prompt: 16 tokens · 7 words</span>
+<span class="t-line t-ok">Total: 4,017 tokens · 1,984 words</span>
       </div>
     </div>
 
     <div class="ctx-bar-wrap reveal">
       <div class="ctx-bar" id="ctxBar" aria-hidden="true">
         <div class="ctx-seg seg-sys" data-w="34.1"></div>
-        <div class="ctx-seg seg-tools" data-w="62.3"></div>
-        <div class="ctx-seg seg-hist" data-w="3.4"></div>
-        <div class="ctx-seg seg-end" data-w="0.2"></div>
+        <div class="ctx-seg seg-tools" data-w="61.9"></div>
+        <div class="ctx-seg seg-hist" data-w="3.5"></div>
+        <div class="ctx-seg seg-end" data-w="0.4"></div>
       </div>
       <div class="ctx-legend">
-        <span class="ctx-leg"><i class="seg-sys"></i> system prompt · 4,256</span>
-        <span class="ctx-leg"><i class="seg-tools"></i> active tools · 7,768</span>
-        <span class="ctx-leg"><i class="seg-hist"></i> conversation · 419</span>
-        <span class="ctx-leg"><i class="seg-end"></i> end prompt · 22</span>
+        <span class="ctx-leg"><i class="seg-sys"></i> system prompt · 1,371</span>
+        <span class="ctx-leg"><i class="seg-tools"></i> active tools · 2,487</span>
+        <span class="ctx-leg"><i class="seg-hist"></i> conversation · 142</span>
+        <span class="ctx-leg"><i class="seg-end"></i> end prompt · 16</span>
       </div>
     </div>
 
     <div class="ctx-cards">
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0-6 6c0 2 .8 3.4 2 4.5V17h8v-3.5c1.2-1.1 2-2.5 2-4.5a6 6 0 0 0-6-6z"/><path d="M9 20h6M10 22h4"/></svg></div>
-        <h3>System prompt <em>· 4,256 tokens</em></h3>
-        <p>Everything your AI always needs to know: who you are, what features are active, and your most important memories. Rose22's instance holds <strong>more than half a year of memories</strong> — and it's still around 4k tokens, because only the most important ones are kept in mind at all times. The rest is stored and searchable when you need it.</p>
+        <h3>System prompt <em>· 1,371 tokens</em></h3>
+        <p>Everything your AI always needs to know: who you are, what features are active, and your most important memories. With just the essentials loaded, it's under 1.4k. For reference, Rose22's fully-loaded instance with half a year of memories holds about 4.3k tokens - still tiny, because only the most important memories are kept in mind at all times. The rest is stored and searchable when needed.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a2 2 0 0 0 2.8 2.8l6-6a4 4 0 0 0 5.4-5.4l-2.5 2.5-2.8-2.8z"/></svg></div>
-        <h3>Active tools <em>· 7,768 tokens, 74 active</em></h3>
-        <p>Your AI's capabilities — like web search, calendar, and reminders — are listed separately from the system prompt. This keeps things organized and fast. Rose22's instance has most things turned on. A basic setup with just the essentials uses only <strong>21 tools and 1,877 tokens</strong> — much lighter.</p>
+        <h3>Active tools <em>· 2,487 tokens, ~26 active</em></h3>
+        <p>Your AI's capabilities - like memory, web search, calendar, and reminders - are listed separately from the system prompt. This keeps things organized and fast. A basic setup with just the core essentials uses about <strong>1,900 tokens and 21 tools</strong>. On the heavier side, a fully-loaded instance with 74 tools uses around 7.8k.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-8 8H5l-2 2V12a8 8 0 0 1 8-8h2a8 8 0 0 1 8 8z"/><path d="M9 11h6M9 14h4"/></svg></div>
-        <h3>Your conversation <em>· 419 tokens</em></h3>
+        <h3>Your conversation <em>· 142 tokens</em></h3>
         <p>Only the recent chat history. When things get too long, your AI automatically forgets the oldest messages to stay fast. It always keeps your latest message safe.</p>
       </div>
       <div class="card feature reveal" data-tilt>
         <div class="icon-tile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
-        <h3>End prompt (aka "author's note") <em>· 22 tokens</em></h3>
-        <p>Things that change all the time — like the current time — live at the very end. Updating them never forces your AI to re-read everything else.</p>
+        <h3>End prompt <em>· 16 tokens</em></h3>
+        <p>Things that change all the time - like the current time or active reminders - live at the very end. Updating them never forces your AI to re-read everything else.</p>
       </div>
     </div>
 
     <div class="arch-banner reveal">
-      <p>You can see exactly how much your AI processes at any time. Ask it to show you, and it will — so you always know what it's paying attention to.</p>
+      <p>You can see exactly how much your AI processes at any time. Ask it to show you, and it will - so you always know what it's paying attention to.</p>
     </div>
   </div>
 </section>
@@ -281,14 +323,14 @@
     <div class="sec-head reveal">
       <div class="sec-kicker">Life management</div>
       <h2>Your daily life, <span class="grad-text">organized.</span></h2>
-      <p class="sec-sub">OpenLumara is especially well-suited to managing your daily life — and it's what its creator uses it for the most. If you deal with ADHD, autism, or any form of executive dysfunction, this is your gentle, persistent, always-on assistant.</p>
+      <p class="sec-sub">OpenLumara is especially well-suited to managing your daily life - and it's what its creator uses it for the most. If you deal with ADHD, autism, or any form of executive dysfunction, this is your gentle, persistent, always-on assistant.</p>
     </div>
     <div class="life-grid">
       <div class="life-card reveal"><span class="life-ico">&#9745;</span><h4>Lists &amp; to-dos</h4><p>Your AI keeps track of your tasks, prioritizes them with you, and checks them off one by one.</p></div>
       <div class="life-card reveal"><span class="life-ico">&#9998;</span><h4>Notes</h4><p>Organized, searchable, and editable. Just ask your AI to remember something, and it does.</p></div>
       <div class="life-card reveal"><span class="life-ico">&#10022;</span><h4>Memory</h4><p>Important things are always in your AI's mind. The rest is searchable when you need it. It remembers you.</p></div>
       <div class="life-card reveal"><span class="life-ico">&#128197;</span><h4>Calendar</h4><p>Your AI knows what's coming up and can remind you about events through any app you use.</p></div>
-      <div class="life-card reveal"><span class="life-ico">&#9201;</span><h4>Reminders &amp; routines</h4><p>Morning routines, medication reminders, grocery check-ins — recurring or one-off, at your pace.</p></div>
+      <div class="life-card reveal"><span class="life-ico">&#9201;</span><h4>Reminders &amp; routines</h4><p>Morning routines, medication reminders, grocery check-ins - recurring or one-off, at your pace.</p></div>
       <div class="life-card reveal"><span class="life-ico">&#128260;</span><h4>Model switching</h4><p>Use a powerful model for hard tasks, a lighter one for quick questions. Your AI can switch between them too.</p></div>
     </div>
     <div class="life-note reveal">
@@ -352,7 +394,7 @@
     <div class="sec-head reveal">
       <div class="sec-kicker">How it compares</div>
       <h2>OpenLumara vs <span class="grad-text">Pi</span> vs <span class="grad-text">Hermes</span></h2>
-      <p class="sec-sub">Pi is a great coding tool for your terminal. Hermes is a capable general agent. OpenLumara is built for your <em>whole life</em> — your memories, your routines, your habits. Here's the honest comparison.</p>
+      <p class="sec-sub">Pi is a great coding tool for your terminal. Hermes is a capable general agent. OpenLumara is built for your <em>whole life</em> - your memories, your routines, your habits. Here's the honest comparison.</p>
     </div>
 
     <div class="table-wrap reveal">
@@ -391,15 +433,15 @@
         <ul class="why-list">
           <li><span class="why-ico">&rarr;</span><p><strong>Made for developers, not everyday people.</strong> Pi's main focus is coding, and it's great at it - but using it for anything else but coding requires a lot of modifications, config file editing, and extensions.</p></li>
           <li><span class="why-ico">&rarr;</span><p><strong>It only works in your terminal.</strong> Pi is great for coding, but it doesn't work in your browser, on Telegram, or send notifications to your phone.</p></li>
-          <li><span class="why-ico">&rarr;</span><p><strong>You have to build everything yourself.</strong> Pi doesn't include memory, scheduling, or to-do lists — you have to write those features yourself.</p></li>
+          <li><span class="why-ico">&rarr;</span><p><strong>You have to build everything yourself.</strong> Pi doesn't include memory, scheduling, or to-do lists - you have to write those features yourself.</p></li>
           <li><span class="why-ico">&rarr;</span><p><strong>No built-in safety.</strong> Pi runs with whatever permissions you give it. You have to set up security yourself.</p></li>
-          <li><span class="why-ico">&rarr;</span><p><strong>OpenLumara has those features.</strong> Memory, scheduler, code helper, lists — all built in, all optional, all toggleable with one command.</p></li>
+          <li><span class="why-ico">&rarr;</span><p><strong>OpenLumara has those features.</strong> Memory, scheduler, code helper, lists - all built in, all optional, all toggleable with one command.</p></li>
         </ul>
       </div>
       <div class="why-card reveal">
         <div class="why-head"><span class="why-logo hermes-logo">Hermes</span><h3>Why not Hermes?</h3></div>
         <ul class="why-list">
-          <li><span class="why-ico">&rarr;</span><p><strong>Local works — but slowly.</strong> Hermes supports local models, but some features can make them slow. OpenLumara is designed to keep local models fast.</p></li>
+          <li><span class="why-ico">&rarr;</span><p><strong>Local works - but slowly.</strong> Hermes supports local models, but some features can make them slow. OpenLumara is designed to keep local models fast.</p></li>
           <li><span class="why-ico">&rarr;</span><p><strong>Setting it up takes effort.</strong> By their own words, it requires a server, API keys, and ongoing maintenance. It has a complicated onboarding wizard that was made for developers, and the default included skills are a mishmash of random stuff you might never need, including skills for training your own models. OpenLumara: clone, run, open the webUI, set your api details, done.</p></li>
           <li><span class="why-ico">&rarr;</span><p><strong>Built for businesses.</strong> Hermes targets founders, agencies, and support teams. OpenLumara is built for your <em>life</em>: routines, habits, memory, reminders.</p></li>
         </ul>
@@ -409,13 +451,13 @@
     <div class="reasons reveal">
       <div class="reasons-head"><h3>Eight reasons to choose OpenLumara</h3></div>
       <ol class="reasons-list">
-        <li><div class="reason"><span class="reason-num">01</span><div><h4>Your whole life, in one place</h4><p>To-dos, notes, memory, calendar, reminders — all built in, all optional. Not just for coding, not just for business.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">01</span><div><h4>Your whole life, in one place</h4><p>To-dos, notes, memory, calendar, reminders - all built in, all optional. Not just for coding, not just for business.</p></div></div></li>
         <li><div class="reason"><span class="reason-num">02</span><div><h4>Turn features on and off</h4><p>Need memory? Turn it on. Don't want your AI using the command line? Turn it off. Other tools make you build everything yourself or ship a fixed set.</p></div></div></li>
         <li><div class="reason"><span class="reason-num">03</span><div><h4>Your data stays on your computer</h4><p>Works with free, local AI models. No cloud, no account, no credits, no company collecting your data.</p></div></div></li>
         <li><div class="reason"><span class="reason-num">04</span><div><h4>Fast and transparent</h4><p>Your AI only processes about as much as two pages of text to get started. You can see exactly what it's processing at any time.</p></div></div></li>
-        <li><div class="reason"><span class="reason-num">05</span><div><h4>Works wherever you are</h4><p>Browser, Telegram, Discord, encrypted chat — one AI, everywhere you talk to it.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">05</span><div><h4>Works wherever you are</h4><p>Browser, Telegram, Discord, encrypted chat - one AI, everywhere you talk to it.</p></div></div></li>
         <li><div class="reason"><span class="reason-num">06</span><div><h4>Safe by default</h4><p>Your AI can't access your computer unless you allow it. The command line is off by default, and any code it writes is checked before saving.</p></div></div></li>
-        <li><div class="reason"><span class="reason-num">07</span><div><h4>Add features easily</h4><p>Want more? You can add features in simple Python — no complex setups. The system even installs anything extra you need.</p></div></div></li>
+        <li><div class="reason"><span class="reason-num">07</span><div><h4>Add features easily</h4><p>Want more? You can add features in simple Python - no complex setups. The system even installs anything extra you need.</p></div></div></li>
         <li><div class="reason"><span class="reason-num">08</span><div><h4>Free, forever</h4><p>No tiers, no credits, no cloud required. Just your computer and your AI.</p></div></div></li>
       </ol>
     </div>
@@ -428,7 +470,7 @@
     <div class="sec-head reveal">
       <div class="sec-kicker">Customize</div>
       <h2>Make it <span class="grad-text">uniquely yours.</span></h2>
-      <p class="sec-sub">OpenLumara comes with everything you need out of the box. But if you want to go further, you can add new features — whether you're a developer or not. Even your AI can help you build new features from scratch.</p>
+      <p class="sec-sub">OpenLumara comes with everything you need out of the box. But if you want to go further, you can add new features - whether you're a developer or not. Even your AI can help you build new features from scratch.</p>
     </div>
     <div class="extend-grid">
       <div class="code-card reveal">
@@ -441,7 +483,7 @@
       </div>
       <div class="extend-points">
         <div class="ext-point reveal"><span class="ext-num">1</span><p><strong>Start with examples.</strong> OpenLumara ships with hand-written examples you can read and learn from. No guesswork.</p></div>
-        <div class="ext-point reveal"><span class="ext-num">2</span><p><strong>Ask your AI to build it.</strong> Tell your AI what feature you want, and it can write the code for you — then you can review it yourself.</p></div>
+        <div class="ext-point reveal"><span class="ext-num">2</span><p><strong>Ask your AI to build it.</strong> Tell your AI what feature you want, and it can write the code for you - then you can review it yourself.</p></div>
         <div class="ext-point reveal"><span class="ext-num">3</span><p><strong>Simple to set up.</strong> Save the file, enable it in your settings, and you're done. The system handles the rest.</p></div>
         <div class="ext-point reveal"><span class="ext-num">4</span><p><strong>No developer required.</strong> Most people just use the features that come built-in. But if you want more, the path is simple and guided.</p></div>
       </div>
@@ -455,7 +497,7 @@
     <div class="cta-card reveal">
       <div class="cta-glow" aria-hidden="true"></div>
       <h2>Get started in <span class="grad-text">two commands</span></h2>
-      <p>Download it, run it, open your browser, connect your AI, and start chatting. Then ask your new AI anything — it even knows how to use itself.</p>
+      <p>Download it, run it, open your browser, connect your AI, and start chatting. Then ask your new AI anything - it even knows how to use itself.</p>
       <div class="terminal cta-terminal">
         <div class="terminal-bar">
           <span class="dot dot-r"></span><span class="dot dot-y"></span><span class="dot dot-g"></span>
@@ -485,7 +527,7 @@
     <div class="footer-brand">
       <div class="logo"><svg class="logo-mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 7.2L22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8z"/></svg><span>OpenLumara</span></div>
       <p>Your personal AI assistant that runs on your computer. Free, private, and built for your whole life.</p>
-      <p class="lobster">&#129822; lobster-free zone — cats have claws too.</p>
+      <p class="lobster">&#129822; lobster-free zone - cats have claws too.</p>
     </div>
     <div class="footer-col">
       <h4>Project</h4>
@@ -501,7 +543,7 @@
     </div>
     <div class="footer-col">
       <h4>License</h4>
-      <p>GPL v3 — free forever, no tiers, no credits, no cloud required.</p>
+      <p>GPL v3 - free forever, no tiers, no credits, no cloud required.</p>
     </div>
   </div>
   <div class="footer-bottom">

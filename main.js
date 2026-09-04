@@ -289,6 +289,116 @@
     });
   }
 
+  /* ---------- hero slideshow ---------- */
+
+  function initSlideshow() {
+    var root = document.getElementById("heroSlideshow");
+    if (!root) return;
+    var track = document.getElementById("slideTrack");
+    var slides = track ? Array.prototype.slice.call(track.children) : [];
+    if (slides.length === 0) return;
+
+    var viewport = root.querySelector(".slideshow-viewport");
+    var prevBtn = document.getElementById("slidePrev");
+    var nextBtn = document.getElementById("slideNext");
+    var dotsWrap = document.getElementById("slideDots");
+    var counter = document.getElementById("slideCount");
+    var titleEl = document.getElementById("slideTitle");
+    var idx = 0;
+
+    // build dots
+    if (dotsWrap) {
+      slides.forEach(function (_, i) {
+        var d = document.createElement("button");
+        d.type = "button";
+        d.className = "slideshow-dot";
+        d.setAttribute("aria-label", "Go to image " + (i + 1));
+        d.addEventListener("click", function () { go(i); });
+        dotsWrap.appendChild(d);
+      });
+    }
+    var dots = dotsWrap ? Array.prototype.slice.call(dotsWrap.children) : [];
+
+    // title for a slide: data-title on the img, else derived from the filename
+    function titleFor(i) {
+      var img = slides[i].querySelector("img");
+      if (!img) return "";
+      var t = img.getAttribute("data-title");
+      if (t) return t;
+      return img.src.split("/").pop().replace(/\.[a-z0-9]+$/i, "").replace(/-/g, " ");
+    }
+
+    // size the viewport to the current image so short screenshots don't leave a gap
+    function fitHeight(animate) {
+      if (!viewport) return;
+      var img = slides[idx].querySelector("img");
+      if (!img || !img.naturalHeight) return;
+      var h = img.getBoundingClientRect().height;
+      if (!animate) viewport.classList.add("no-anim");
+      viewport.style.height = h + "px";
+      if (!animate) {
+        void viewport.offsetWidth;
+        viewport.classList.remove("no-anim");
+      }
+    }
+
+    function render(animate) {
+      if (!animate) track.classList.add("no-anim");
+      track.style.transform = "translateX(" + (-idx * 100) + "%)";
+      if (!animate) {
+        // force reflow so the next transform animates again
+        void track.offsetWidth;
+        track.classList.remove("no-anim");
+      }
+      if (titleEl) titleEl.textContent = titleFor(idx);
+      if (counter) counter.textContent = (idx + 1) + " / " + slides.length;
+      dots.forEach(function (d, i) { d.classList.toggle("active", i === idx); });
+      slides.forEach(function (s, i) {
+        s.setAttribute("aria-hidden", i === idx ? "false" : "true");
+      });
+      fitHeight(animate);
+    }
+
+    function go(i) {
+      idx = (i + slides.length) % slides.length;
+      render(true);
+    }
+
+    if (prevBtn) prevBtn.addEventListener("click", function () { go(idx - 1); });
+    if (nextBtn) nextBtn.addEventListener("click", function () { go(idx + 1); });
+
+    // keyboard support when the slideshow is focused
+    root.setAttribute("tabindex", "0");
+    root.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") { e.preventDefault(); go(idx - 1); }
+      else if (e.key === "ArrowRight") { e.preventDefault(); go(idx + 1); }
+    });
+
+    // swipe support
+    var startX = null;
+    root.addEventListener("pointerdown", function (e) { startX = e.clientX; });
+    root.addEventListener("pointerup", function (e) {
+      if (startX === null) return;
+      var dx = e.clientX - startX;
+      startX = null;
+      if (Math.abs(dx) > 40) go(idx + (dx < 0 ? 1 : -1));
+    });
+
+    // keep the height in sync when the window resizes
+    window.addEventListener("resize", function () { fitHeight(false); });
+
+    // re-measure once each image has actually loaded
+    slides.forEach(function (s, i) {
+      var img = s.querySelector("img");
+      if (!img) return;
+      img.addEventListener("load", function () {
+        if (i === idx) fitHeight(false);
+      });
+    });
+
+    render(false);
+  }
+
   /* ---------- boot ---------- */
 
   function boot() {
@@ -300,6 +410,7 @@
     initNav();
     initTilt();
     initCopy();
+    initSlideshow();
   }
 
   if (document.readyState === "loading") {
